@@ -26,7 +26,7 @@ render(){
 }
 let mapStateToProps=(state,props)=>{
     console.log({state,props});
-    return {...state,props}
+    return {...state.auth,...props}
 }
 let mapDispatchToProps=dispatch=>{
         return {

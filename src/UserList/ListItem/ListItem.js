@@ -1,12 +1,14 @@
 import React from 'react';
 import { ListGroup, Col, Image, Row } from 'react-bootstrap';
-import { BaseStore } from '../../BaseStore';
+import { BaseStore, addReducer } from '../../BaseStore';
+import { ListItemUpdate } from './ListItemClickReducer';
 
 export class ListItem extends React.Component {
 
-    constructor(props) {
+    constructor(props) {        
         super(props);
         this.handleOnClick=this.handleOnClick.bind(this);
+        addReducer({ListItemUpdate});
     }
     handleOnClick(user){
         BaseStore.dispatch({type:"userListItemSelect",payload:{slectedUser:user}})
