@@ -12,3 +12,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.singleline {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profileImage>.statusIndicator,
+.profileImage>img {
+  display: inline;
+}
+.profileImageBackGround{
+  height: 50px;
+  width: 50px;
+  /* background: #54364D; */
+  border-radius: 50%;
+  background-position:center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.profileImage>img{
+  border: solid 1px black;
+}
+.online {
+  background: green;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}
+
+.offline {
+  background: red;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  border: solid 0.5px white;
+}
+
+.profileImage>.statusIndicator {
+  z-index: 10000;
+  float: left;
+  position: absolute;
+  right: 8px;
+  bottom: 3px;
+}
