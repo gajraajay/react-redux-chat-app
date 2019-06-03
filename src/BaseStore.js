@@ -18,8 +18,11 @@ export const BaseStore = createStore(
 
 function reducer(state = {}, action) {
     switch (action.type) {
-        default: return { ...state, ...action }
-    }
+        case "Login":
+            return { user:action.user,type:action.type,isLoggedIn:action.isLoggedIn };
+        default:
+            return state;
+       }
 }
 
 export function addReducer(asyncReducer){

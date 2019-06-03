@@ -1,17 +1,19 @@
 import React from 'react';
 import { ListGroup, Col, Image, Row } from 'react-bootstrap';
 import { BaseStore, addReducer } from '../../BaseStore';
-import { ListItemUpdate } from './ListItemClickReducer';
+import { ListItemClicked } from './ListItemClickReducer';
+import { connect } from 'react-redux';
+import { TYPE } from './ActionTypes';
 
-export class ListItem extends React.Component {
+class ListItem extends React.Component {
 
     constructor(props) {        
         super(props);
         this.handleOnClick=this.handleOnClick.bind(this);
-        addReducer({ListItemUpdate});
+        addReducer({ ListItemClicked});
     }
     handleOnClick(user){
-        BaseStore.dispatch({type:"userListItemSelect",payload:{slectedUser:user}})
+        BaseStore.dispatch({type:TYPE.CLICK_ON_USER_ITEM,payload:{selectedItem:user}})
     }
     render() {
         return (
@@ -44,11 +46,8 @@ export class ListItem extends React.Component {
     }
 }
 
-
-
-
-
-
+ListItem = connect(null, null)(ListItem);
+export{ListItem};
 const style={
     maxHeight:"75px",
     cursor:"pointer",

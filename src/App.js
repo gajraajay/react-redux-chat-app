@@ -9,10 +9,9 @@ let App = class App extends React.Component {
   constructor(props) {
     super(props);
     if (isInitialized()) {
-
+      
     } else {
       intializeCometChat().then(() => {
-
         getLoggedinUser().then(user => {
           console.log(user);
           BaseStore.dispatch({

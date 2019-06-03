@@ -41,12 +41,16 @@ return {
 let mapDispatchToProps=(dispatch)=>{
     return {
         login:(e)=>{
-            e.preventDefault()
-            console.log(e.target.elements.uid.value)
+            console.log("here we are1");
+            e.preventDefault();
+            console.log(e.target.elements.uid.value, CometChat.login);
             CometChat.login(e.target.elements.uid.value,config.API_KEY).then(user=>{
+                console.log({user});
                 dispatch({
                        type: "Login", user, isLoggedIn: true
                 });
+            },error=>{
+                console.log({error});
             })
             
         }
